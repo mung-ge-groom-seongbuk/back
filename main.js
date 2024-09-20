@@ -1,16 +1,12 @@
-const port = 80,
-  http = require("http"),
-  app = http.createServer((request, response) => {
-    console.log("Recieved an incoming request!");
-    response.writeHead(httpStatus.OK, {
-      "Content=Type": "text/html"
-    });
+//index.js
+const express = require('express') //③번 단계에서 다운받았던 express 모듈을 가져온다.
+const app = express() //가져온 express 모듈의 function을 이용해서 새로운 express 앱을 만든다. 🔥
+const port = 5000 
 
-    let responseMessage="<h1>Hello</h1>";
-    response.write(responseMessage);
-    response.end();
-    console.log('Sent a response : ${responseMessage}');
-  });
+app.get('/', (req, res) => { //express 앱(app)을 넣고, root directory에 오면, 
+  res.send('Hello World!') //"Hello World!" 를 출력되게 해준다.
+})
 
-  app.listen(port);
-  console.log('The server has strated and is listening on port number: ${port}');
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+}) //포트 5000번에서 이 앱을 실행한다.
