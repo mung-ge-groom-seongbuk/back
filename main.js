@@ -13,4 +13,4 @@ const port = 80,
   });
 
   app.listen(port);
-  console.log('The server has strated and is listening on port number: %{port}');
+  console.log('The server has strated and is listening on port number: ${port}');
